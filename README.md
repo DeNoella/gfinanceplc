@@ -1,2 +1,3 @@
 # gfinanceplc
-Goshen Finance Plc 
+## Goshen Finance Plc 
+ aYou can ccess the website here: https://goshenfinanceplc.netlify.app/
