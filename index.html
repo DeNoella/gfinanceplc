@@ -1,0 +1,2589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Awareness | Goshen Finance Plc</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #050e2b;
+      --navy-mid: #0a1a42;
+      --navy-light: #0f2460;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-pale: #f5e6b8;
+      --cream: #faf7f0;
+      --muted: #8fa0c0;
+      --white: #fff;
+      --danger: #e84444;
+      --success: #2db87c;
+      --warning: #e8a020;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─ LANG TOGGLE BAR ─ */
+    .lang-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(5, 14, 43, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lang-bar-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .lang-bar-logo span {
+      color: var(--gold);
+    }
+
+    .lang-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50px;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .lang-btn:hover {
+      background: rgba(201, 168, 76, 0.22);
+    }
+
+    .lang-btn .flag-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .lang-btn .lang-txt {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn .lang-sub {
+      font-size: 10px;
+      color: rgba(201, 168, 76, 0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .issue-badge {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(201, 168, 76, 0.5);
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    /* ─ KINYARWANDA BLOCKS ─ */
+    .rw-block {
+      background: rgba(0, 80, 40, 0.08);
+      border-left: 3px solid rgba(45, 184, 124, 0.35);
+      padding: 28px 32px;
+      margin-top: 20px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .rw-block .rw-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #2db87c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .rw-block .rw-tag::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(45, 184, 124, 0.3), transparent);
+    }
+
+    .rw-block h2,
+    .rw-block h3,
+    .rw-block h4 {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .rw-block p,
+    .rw-block li {
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ─ HERO ─ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 40px 60px;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('C:/Users/PC/.gemini/antigravity/brain/261e8043-2ebc-4c46-9848-b11eece33b8c/cyber_hero_1771591944813.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 14, 43, 0.88) 0%, rgba(5, 14, 43, 0.75) 50%, rgba(5, 14, 43, 0.92) 100%);
+    }
+
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-lines::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 60%;
+      height: 140%;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 50%;
+      animation: spin-slow 40s linear infinite;
+    }
+
+    .hero-lines::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 70%;
+      height: 160%;
+      border: 1px solid rgba(201, 168, 76, 0.07);
+      border-radius: 50%;
+      animation: spin-slow 60s linear infinite reverse;
+    }
+
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .shield-wrap {
+      position: relative;
+      margin-bottom: 40px;
+      animation: float 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .shield-pulse {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      border: 2px solid rgba(201, 168, 76, 0.25);
+      animation: pulse-ring 2.5s ease-out infinite;
+    }
+
+    .shield-pulse:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .shield-pulse:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.7);
+        opacity: 0;
+      }
+    }
+
+    .shield-svg {
+      width: 110px;
+      height: 120px;
+      filter: drop-shadow(0 0 40px rgba(201, 168, 76, 0.5));
+    }
+
+    .hero-edition {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: fadeUp 0.8s ease both;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 100px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 8px;
+      animation: fadeUp 0.8s ease 0.2s both;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: rgba(212, 207, 196, 0.85);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      animation: fadeUp 0.8s ease 0.4s both;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 24px;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+
+    .hero-vol {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: rgba(201, 168, 76, 0.6);
+      animation: fadeUp 0.8s ease 0.6s both;
+      z-index: 2;
+      position: relative;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(201, 168, 76, 0.45);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: bounce-down 2s ease infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* ─ SECTIONS ─ */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 40px;
+    }
+
+    .sec-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201, 168, 76, 0.4), transparent);
+    }
+
+    .sec-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .sec-heading em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .sec-desc {
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    /* ─ WELCOME CARDS ─ */
+    .welcome-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      animation: fadeUp 0.8s ease 0.7s both;
+    }
+
+    .welcome-card {
+      background: rgba(10, 26, 66, 0.85);
+      backdrop-filter: blur(20px);
+      padding: 48px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .welcome-card+.welcome-card {
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      padding: 6px 14px;
+      margin-bottom: 26px;
+      text-transform: uppercase;
+    }
+
+    .lang-badge.rw {
+      background: rgba(0, 136, 76, 0.12);
+      border-color: rgba(45, 184, 124, 0.35);
+      color: #2db87c;
+    }
+
+    .welcome-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .welcome-card p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #b0bdd8;
+    }
+
+    .welcome-card p strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .welcome-corner {
+      position: absolute;
+      bottom: 16px;
+      right: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(201, 168, 76, 0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .rw-card {
+      background: rgba(10, 26, 66, 0.85)
+    }
+
+    .rw-card::before {
+      background: linear-gradient(90deg, #2db87c, #1a9060);
+    }
+
+    /* ─ DID YOU KNOW ─ */
+    .dyk-wrap {
+      background: rgba(8, 18, 50, 0.98);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .dyk-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .dyk-stat {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 100px;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .dyk-sub {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, 0.5);
+      margin-top: -10px;
+    }
+
+    .dyk-text {
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .dyk-text strong {
+      color: var(--white);
+    }
+
+    .dyk-source {
+      margin-top: 20px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(143, 160, 192, 0.5);
+      text-transform: uppercase;
+    }
+
+    .divider-gold {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 28px 0;
+    }
+
+    /* ─ THREATS ─ */
+    .threats-sec {
+      background: rgba(5, 12, 36, 0.97);
+    }
+
+    .threats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .threat-card {
+      background: rgba(10, 26, 66, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .threat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201, 168, 76, 0.35);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .threat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .threat-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .threat-num {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: rgba(201, 168, 76, 0.06);
+      line-height: 1;
+    }
+
+    .threat-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .threat-icon-box svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-red {
+      background: rgba(232, 68, 68, 0.12);
+      box-shadow: 0 0 20px rgba(232, 68, 68, 0.15);
+    }
+
+    .icon-orange {
+      background: rgba(232, 160, 32, 0.12);
+      box-shadow: 0 0 20px rgba(232, 160, 32, 0.15);
+    }
+
+    .icon-blue {
+      background: rgba(45, 100, 220, 0.12);
+      box-shadow: 0 0 20px rgba(45, 100, 220, 0.15);
+    }
+
+    .icon-teal {
+      background: rgba(45, 184, 124, 0.12);
+      box-shadow: 0 0 20px rgba(45, 184, 124, 0.15);
+    }
+
+    .threat-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .threat-card .en-p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .threat-rw {
+      background: rgba(0, 80, 40, 0.1);
+      border-left: 2px solid rgba(45, 184, 124, 0.3);
+      padding: 14px 18px;
+      margin-top: 4px;
+    }
+
+    .threat-rw p {
+      font-size: 13px;
+      line-height: 1.8;
+      font-style: italic;
+      color: rgba(212, 207, 196, 0.75);
+    }
+
+    .threat-rw-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #2db87c;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    /* ─ WARNING BANNER ─ */
+    .warn-banner {
+      background: linear-gradient(135deg, rgba(232, 68, 68, 0.08), rgba(232, 68, 68, 0.04));
+      border: 1px solid rgba(232, 68, 68, 0.25);
+      border-left: 4px solid var(--danger);
+      padding: 24px 32px;
+      margin-bottom: 50px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .warn-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .warn-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .warn-banner p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #d4a0a0;
+    }
+
+    .warn-banner strong {
+      color: #ff8080;
+    }
+
+    /* ─ TIPS ─ */
+    .tips-sec {
+      background: var(--navy);
+    }
+
+    .tips-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .tips-sidebar {
+      position: sticky;
+      top: 70px;
+    }
+
+    .tips-sidebar .big-n {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 140px;
+      line-height: 1;
+      color: rgba(201, 168, 76, 0.12);
+      margin-bottom: -10px;
+    }
+
+    .tips-sidebar blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.65;
+      border-top: 1px solid rgba(201, 168, 76, 0.25);
+      padding-top: 18px;
+    }
+
+    .dodo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .do-card {
+      background: rgba(45, 184, 124, 0.05);
+      border: 1px solid rgba(45, 184, 124, 0.2);
+      padding: 36px;
+    }
+
+    .dont-card {
+      background: rgba(232, 68, 68, 0.05);
+      border: 1px solid rgba(232, 68, 68, 0.2);
+      padding: 36px;
+    }
+
+    .do-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--success);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dont-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--danger);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .check-list li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #9ab0c8;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .check-list li .mark {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+
+    /* ─ SCENARIO ─ */
+    .scenario-sec {
+      background: rgba(8, 18, 50, 0.98);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .scenario-card {
+      background: rgba(10, 26, 66, 0.7);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 50px 48px;
+      position: relative;
+      overflow: hidden;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .scenario-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+    }
+
+    .scenario-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .scenario-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .scenario-card p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    .scenario-lesson {
+      background: rgba(201, 168, 76, 0.07);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+
+    .scenario-lesson p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gold-light);
+      margin: 0;
+    }
+
+    /* ─ PASSWORDS ─ */
+    .pass-sec {
+      background: var(--navy);
+    }
+
+    .pass-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .pass-step {
+      background: rgba(10, 26, 66, 0.7);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .pass-step:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+    }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: rgba(201, 168, 76, 0.15);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .step-ex {
+      font-size: 13px;
+      color: #667799;
+      font-family: monospace;
+      background: rgba(201, 168, 76, 0.06);
+      padding: 8px 12px;
+      letter-spacing: 1px;
+    }
+
+    .pass-step p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ─ DATA TABLE ─ */
+    .data-sec {
+      background: rgba(5, 12, 36, 0.97);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+    }
+
+    .data-table th {
+      background: rgba(201, 168, 76, 0.1);
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .data-table td {
+      padding: 18px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(201, 168, 76, 0.03);
+    }
+
+    .level-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .level-public {
+      background: rgba(45, 184, 124, 0.12);
+      color: #2db87c;
+      border: 1px solid rgba(45, 184, 124, 0.3);
+    }
+
+    .level-internal {
+      background: rgba(45, 100, 220, 0.12);
+      color: #6496ff;
+      border: 1px solid rgba(45, 100, 220, 0.3);
+    }
+
+    .level-conf {
+      background: rgba(232, 160, 32, 0.12);
+      color: #e8a020;
+      border: 1px solid rgba(232, 160, 32, 0.3);
+    }
+
+    .level-rest {
+      background: rgba(232, 68, 68, 0.12);
+      color: #e84444;
+      border: 1px solid rgba(232, 68, 68, 0.3);
+    }
+
+    .data-rule {
+      background: rgba(201, 168, 76, 0.06);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      border-left: 3px solid var(--gold);
+      padding: 20px 26px;
+      margin-top: 24px;
+    }
+
+    .data-rule p {
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    /* ─ RED FLAGS ─ */
+    .flags-sec {
+      background: var(--navy);
+    }
+
+    .flags-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .flag-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 28px;
+      border: 1px solid rgba(232, 68, 68, 0.1);
+      border-top: none;
+      background: rgba(10, 26, 66, 0.4);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .flag-item:first-child {
+      border-top: 1px solid rgba(232, 68, 68, 0.1);
+    }
+
+    .flag-item:hover {
+      background: rgba(232, 68, 68, 0.05);
+      border-color: rgba(232, 68, 68, 0.25);
+    }
+
+    .flag-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--danger);
+      flex-shrink: 0;
+      margin-top: 6px;
+      box-shadow: 0 0 8px rgba(232, 68, 68, 0.5);
+    }
+
+    .flag-item p {
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .flag-item .rw-p {
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(212, 207, 196, 0.65);
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ─ INCIDENT ─ */
+    .incident-sec {
+      background: rgba(8, 18, 50, 0.98);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .inc-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: rgba(10, 26, 66, 0.5);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 30px 32px;
+      transition: border-color 0.3s;
+    }
+
+    .inc-step:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+    }
+
+    .inc-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .inc-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .inc-content p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .inc-content .rw-p {
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(212, 207, 196, 0.65);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ─ CONTACT ─ */
+    .contact-sec {
+      background: var(--navy);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 800px;
+    }
+
+    .contact-card {
+      background: rgba(10, 26, 66, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(201, 168, 76, 0.35);
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .contact-type {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .contact-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+
+    .contact-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-rw {
+      font-size: 12px;
+      color: rgba(212, 207, 196, 0.5);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* ─ QUIZ ─ */
+    .quiz-sec {
+      background: rgba(5, 12, 36, 0.97);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .quiz-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .quiz-q {
+      background: rgba(10, 26, 66, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 36px 40px;
+    }
+
+    .quiz-q h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .quiz-q .rw-q {
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(212, 207, 196, 0.55);
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .q-opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      background: rgba(5, 14, 43, 0.5);
+      cursor: pointer;
+      transition: all 0.25s;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .q-opt:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    .q-opt.correct {
+      border-color: rgba(45, 184, 124, 0.5);
+      background: rgba(45, 184, 124, 0.08);
+    }
+
+    .q-opt.correct .opt-letter {
+      background: var(--success);
+      color: var(--white);
+    }
+
+    .q-opt.wrong {
+      border-color: rgba(232, 68, 68, 0.4);
+      background: rgba(232, 68, 68, 0.06);
+    }
+
+    .q-opt.wrong .opt-letter {
+      background: var(--danger);
+      color: var(--white);
+    }
+
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      flex-shrink: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .quiz-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .quiz-feedback.correct-fb {
+      background: rgba(45, 184, 124, 0.1);
+      border: 1px solid rgba(45, 184, 124, 0.3);
+      color: #2ecc71;
+    }
+
+    .quiz-feedback.wrong-fb {
+      background: rgba(232, 68, 68, 0.08);
+      border: 1px solid rgba(232, 68, 68, 0.25);
+      color: #ff7070;
+    }
+
+    /* ─ FOOTER ─ */
+    footer {
+      background: rgba(3, 8, 22, 0.98);
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: #334455;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .footer-bar {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 24px auto;
+      opacity: 0.35;
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: #445566;
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #2a3a50;
+      margin-top: 20px;
+    }
+
+    /* ─ STAT STRIP ─ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .stat-item {
+      padding: 46px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #445566;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    /* ─ ANIMATIONS ─ */
+    @keyframes fadeUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─ DATA CLASSIFICATION CARDS ─ */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 36px 0 28px;
+    }
+
+    .class-card {
+      background: rgba(10, 26, 66, 0.65);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 30px 26px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .class-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .class-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .class-card.cc-public::before {
+      background: var(--success);
+    }
+
+    .class-card.cc-public:hover {
+      border-color: rgba(45, 184, 124, 0.4);
+    }
+
+    .class-card.cc-internal::before {
+      background: #6496ff;
+    }
+
+    .class-card.cc-internal:hover {
+      border-color: rgba(45, 100, 220, 0.4);
+    }
+
+    .class-card.cc-conf::before {
+      background: var(--warning);
+    }
+
+    .class-card.cc-conf:hover {
+      border-color: rgba(232, 160, 32, 0.4);
+    }
+
+    .class-card.cc-rest::before {
+      background: var(--danger);
+    }
+
+    .class-card.cc-rest:hover {
+      border-color: rgba(232, 68, 68, 0.4);
+    }
+
+    .class-card .cc-badge {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+
+    .class-card .cc-meaning {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .class-card .cc-examples {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .class-card .cc-rule {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(212, 207, 196, 0.75);
+      line-height: 1.65;
+    }
+
+    @media(max-width:900px) {
+      .class-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:500px) {
+      .class-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─ RESPONSIVE ─ */
+    @media(max-width:900px) {
+
+      .threats-grid,
+      .dodo-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tips-layout,
+      .dyk-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .pass-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .lang-bar {
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding: 80px 20px 60px;
+      }
+    }
+
+    @media(max-width:500px) {
+      .pass-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═════ LANGUAGE BAR ═════ -->
+  <div class="lang-bar">
+    <div class="lang-bar-logo">Goshen <span>Finance</span> Plc</div>
+    <div class="lang-bar-right">
+      <span class="issue-badge">Vol. 1 · Issue 1 · 2026</span>
+      <button class="lang-btn" id="langBtn" onclick="toggleRW()" title="Show / Hide Kinyarwanda translations">
+        <span class="flag-icon">🇷🇼</span>
+        <div>
+          <div class="lang-txt" id="langTxt">Show Kinyarwanda</div>
+          <div class="lang-sub">Hagarara / Tangira</div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═════ HERO ═════ -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+
+    <div class="shield-wrap">
+      <div class="shield-pulse"></div>
+      <div class="shield-pulse"></div>
+      <div class="shield-pulse"></div>
+      <svg class="shield-svg" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60 4L10 24v40c0 30 20 54 50 62 30-8 50-32 50-62V24L60 4z" fill="rgba(15,36,96,0.8)" stroke="#c9a84c"
+          stroke-width="2" />
+        <path d="M60 16L18 33v29c0 22 15 40 42 48 27-8 42-26 42-48V33L60 16z" fill="rgba(9,25,70,0.5)"
+          stroke="rgba(201,168,76,0.4)" stroke-width="1" />
+        <path d="M46 65l10 10 20-22" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+
+    <div style="position:relative;z-index:2;">
+      <p class="hero-edition">Goshen Finance Plc — Cybersecurity Awareness</p>
+      <h1 class="hero-title">Cyber<span>security</span><br>Awareness</h1>
+      <p class="hero-subtitle">Your First Line of Defence</p>
+      <div class="hero-divider"></div>
+      <p class="hero-vol">Volume 1 &nbsp;·&nbsp; Issue 1 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Designed for Every Team Member
+      </p>
+    </div>
+
+    <!-- <div class="scroll-hint" style="z-index:2;">
+      <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+        <rect x="1" y="1" width="14" height="18" rx="7" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" />
+        <circle cx="8" cy="6" r="2" fill="rgba(201,168,76,0.6)">
+          <animate attributeName="cy" values="6;12;6" dur="2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      Scroll to read
+    </div> -->
+  </section>
+
+  <!-- ═════ WELCOME ═════ -->
+  <section style="background:rgba(5,12,36,0.97);border-top:1px solid rgba(201,168,76,0.08);padding:90px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+      <div class="fade-up">
+        <p class="sec-label">Welcome — Murakaza Neza</p>
+        <h2 class="sec-heading">A Message <em>From<br>Our Team</em></h2>
+      </div>
+      <div class="welcome-wrap fade-up">
+        <!-- ENGLISH -->
+        <div class="welcome-card">
+          <div class="lang-badge">English</div>
+          <h2>Dear Goshen Finance Plc Team,</h2>
+          <p>
+            Welcome to our very first <strong>Cybersecurity Awareness Newsletter!</strong> You don't need to be a tech
+            expert to read this — in fact, this is written especially for you. Every person at Goshen Finance plays a
+            vital role in keeping our bank, our customers, and their money safe.
+            <br><br>
+            <strong>Criminals are getting smarter every day. But so are we.</strong> In this newsletter, you'll learn
+            the most important things to watch out for, in simple, everyday language. Let's stay safe together!
+          </p>
+          <div class="welcome-corner">GF</div>
+        </div>
+        <!-- KINYARWANDA -->
+        <div class="welcome-card rw-card rw-block hidden">
+          <div class="lang-badge rw">Kinyarwanda</div>
+          <h2>Banyamuryango b'Itsinda rya Goshen Finance,</h2>
+          <p>
+            Murakaza neza kuri <strong>Newsletter yacu ya mbere yerekeye Ubumenyi ku Mutekano wa Cyber!</strong>
+            Ntimukeneye kuba impuguke mu ikoranabuhanga kugira ngo muyisome — yateguwe by'umwihariko ku bwanyu. Buri
+            muntu wese muri Goshen Finance afite uruhare rukomeye mu kurinda banki yacu, abakiriya bacu, ndetse
+            n'amafaranga yabo.
+            <br><br>
+            <strong>Abanyabyaha barushaho kugira amayeri buri munsi. Ariko natwe turushaho gukomera.</strong> Muri iki
+            kinyamakuru, muzamenya ibintu by'ingenzi mukwiye kwitaho, bisobanuwe mu rurimi rworoshye kandi rusanzwe.
+            Reka dukomeze kurinda umutekano twese hamwe!
+          </p>
+          <div class="welcome-corner">GF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ DID YOU KNOW ═════ -->
+  <section class="dyk-wrap">
+    <div style="max-width:1100px;margin:0 auto;padding:90px 40px;">
+      <div class="fade-up">
+        <p class="sec-label">01 — Statistics</p>
+      </div>
+      <div class="dyk-inner fade-up">
+        <div>
+          <div class="dyk-stat">$3B+</div>
+          <div class="dyk-sub">Stolen from Africa</div>
+          <div class="divider-gold"></div>
+          <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(143,160,192,0.45);">Did You
+            Know? — Ese Warubizi?</p>
+        </div>
+        <div>
+          <h2 class="sec-heading" style="font-size:clamp(28px,4vw,46px);margin-bottom:20px;">Did You <em>Know?</em></h2>
+          <p class="dyk-text">
+            Cyber criminals have stolen over <strong>USD 3 billion</strong> from African businesses and banks between
+            2019 and 2025. East Africa's financial sector is one of the most targeted. <strong>The good news?</strong>
+            Many attacks start with just one person clicking the wrong link — which means one person being careful can
+            also stop them!
+          </p>
+          <p class="dyk-source">Source: INTERPOL Africa Cyberthreat Assessment, 2025</p>
+          <div class="rw-block hidden" style="margin-top:28px;">
+            <div class="rw-tag">Kinyarwanda</div>
+            <h3 style="font-size:22px;margin-bottom:12px;">Ese Warubizi?</h3>
+            <p style="font-size:14px;line-height:1.9;">Abanyabyaha bo kuri murandasi (cyber criminals) bibye arenga
+              <strong>miliyari 3 z'amadolari y'Amerika</strong> mu bigo n'amabanki byo muri Afurika hagati ya 2019 na
+              2025. Urwego rw'imari muri Afurika y'Iburasirazuba ni rumwe mu rwibasirwa cyane. <strong>Amakuru
+                meza?</strong> Ibitero byinshi bitangirira ku muntu umwe ukanze link itari yo — bivuze ko umuntu umwe
+              ubitayeho kandi witonze ashobora no kubihagarika!
+            </p>
+            <p
+              style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(143,160,192,0.45);margin-top:14px;">
+              Inkomoko: Raporo ya INTERPOL Africa Cyberthreat Assessment, 2025</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAT STRIP -->
+      <div class="stat-strip fade-up" style="margin-top:70px;">
+        <div class="stat-item">
+          <span class="stat-num">91%</span>
+          <span class="stat-lbl">of cyberattacks start with a phishing email</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3.4B</span>
+          <span class="stat-lbl">phishing emails sent every single day globally</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">82%</span>
+          <span class="stat-lbl">of breaches involve a human element</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">$4.4M</span>
+          <span class="stat-lbl">average cost of a data breach in 2023</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ THREATS ═════ -->
+  <section class="threats-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">02 — Main Threats — Ibitero Bikunze Kubaho</p>
+        <h2 class="sec-heading">The Most Common Threats<br>You Will <em>Face</em></h2>
+        <p class="sec-desc">Hackers don't always break in through computers. Very often, they trick people. Here are the
+          four main dangers you need to know about.</p>
+      </div>
+
+      <div class="warn-banner fade-up">
+        <div class="warn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e84444" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg></div>
+        <p><strong>Important:</strong> Most cyberattacks succeed because of human error — not technical failures. A
+          single click on a suspicious link can compromise our entire bank. Your awareness is our most powerful security
+          tool.</p>
+      </div>
+
+      <div class="threats-grid fade-up">
+        <!-- THREAT 1 -->
+        <div class="threat-card">
+          <div class="threat-num">01</div>
+          <div class="threat-icon-box icon-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e84444" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <h3>Phishing Emails</h3>
+          <p class="en-p">A fake email that looks real, pretending to be your boss, IT, or a vendor. It tricks you into
+            clicking a bad link or sharing your password. <strong style="color:var(--gold-light);">When in doubt, don't
+              click!</strong></p>
+          <div class="threat-rw hidden">
+            <p class="threat-rw-label">Kinyarwanda</p>
+            <p>Ubutumwa bwa email bw'ibinyoma busa nk'ubw'ukuri, bwitwaza ko buvuye ku muyobozi wawe, ku ishami rya IT,
+              cyangwa ku mucuruzi mufatanya. Bugushuka gukanda link mbi cyangwa gutanga ijambo ry'ibanga (password)
+              ryawe. <strong>Iyo ushidikanya, ntukande!</strong></p>
+          </div>
+        </div>
+
+        <!-- THREAT 2 -->
+        <div class="threat-card">
+          <div class="threat-num">02</div>
+          <div class="threat-icon-box icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linecap="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8" />
+              <path d="M12 17v4" />
+            </svg>
+          </div>
+          <h3>Ransomware</h3>
+          <p class="en-p">A virus that locks all your computer files and demands money to unlock them. It can shut down
+            the entire branch! It often arrives through email attachments or USB drives.</p>
+          <div class="threat-rw hidden">
+            <p class="threat-rw-label">Kinyarwanda</p>
+            <p>Ni virusi ifunga dosiye zose ziri muri mudasobwa yawe igasaba amafaranga kugira ngo zifungurwe. Ishobora
+              no guhagarika ibikorwa by'ishami ryose! Akenshi iza binyuze mu ma attachment ya email cyangwa USB.</p>
+          </div>
+        </div>
+
+        <!-- THREAT 3 -->
+        <div class="threat-card">
+          <div class="threat-num">03</div>
+          <div class="threat-icon-box icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6496ff" stroke-width="1.8" stroke-linecap="round">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <h3>Impersonation / Pretexting</h3>
+          <p class="en-p">Someone pretends to be a manager, vendor, or IT staff to get you to transfer money or share
+            information. They may sound very convincing — <strong style="color:var(--gold-light);">always verify
+              independently!</strong></p>
+          <div class="threat-rw hidden">
+            <p class="threat-rw-label">Kinyarwanda — Kwiyitirira undi</p>
+            <p>Umuntu yiyitirira umuyobozi, umucuruzi, cyangwa umukozi wa IT kugira ngo agusabe kohereza amafaranga
+              cyangwa gutanga amakuru. Bashobora kumvikana neza cyane — buri gihe banza ugenzure wigenga mbere yo gukora
+              icyo basabye!</p>
+          </div>
+        </div>
+
+        <!-- THREAT 4 -->
+        <div class="threat-card">
+          <div class="threat-num">04</div>
+          <div class="threat-icon-box icon-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2db87c" stroke-width="1.8" stroke-linecap="round">
+              <rect x="2" y="6" width="20" height="12" rx="2" />
+              <path d="M12 6V4" />
+              <path d="M8 6V4" />
+              <path d="M16 6V4" />
+            </svg>
+          </div>
+          <h3>USB Drives (Baiting)</h3>
+          <p class="en-p">A USB drive left in the printer or desk is labeled something tempting like "Salaries 2025." If
+            you plug it in, your computer gets infected. <strong style="color:var(--gold-light);">Never plug in unknown
+              USB drives!</strong></p>
+          <div class="threat-rw hidden">
+            <p class="threat-rw-label">Kinyarwanda — USB Zitajyanye N'akazi</p>
+            <p>USB ishyizwe ku icapiro cyangwa ku meza, yanditseho amagambo ashukisha nka "Imishahara 2025." Iyo
+              uyinjije muri mudasobwa, ihita iyanduza virusi. Ntuzigere winjiza USB utazi aho yaturutse!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  TIPS / DO-DONT  -->
+  <section class="tips-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">03 Monthly Tip Inama y'Ukwezi</p>
+        <h2 class="sec-heading">Do This. <em>Not That.</em></h2>
+        <p class="sec-desc">A quick guide to protect yourself and the bank every single day.</p>
+      </div>
+
+      <div class="dodo-grid fade-up">
+        <div class="do-card">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Do This
+          </h3>
+          <ul class="check-list">
+            <li><span class="mark" style="color:var(--success);">+</span><span>Use a strong passphrase like
+                <em>Coffee-Table-Sunrise-74</em> easy to remember, hard to crack.</span></li>
+            <li><span class="mark" style="color:var(--success);">+</span><span>Turn on MFA (Multi-Factor Authentication)
+                on all your work accounts that extra one-time code is your safety net.</span></li>
+            <li><span class="mark" style="color:var(--success);">+</span><span>Call back on a known number if someone
+                asks you to transfer money or share data even if they say it's urgent.</span></li>
+            <li><span class="mark" style="color:var(--success);">+</span><span>Report immediately if something feels
+                wrong no question is too small!</span></li>
+            <li><span class="mark" style="color:var(--success);">+</span><span>Use approved channels only to share
+                customer documents (not WhatsApp).</span></li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Don't Do This
+          </h3>
+          <ul class="check-list">
+            <li><span class="mark" style="color:var(--danger);">-</span><span>Don't use passwords like
+                <em>Password123</em>, your name, or your birthday attackers guess these in seconds.</span></li>
+            <li><span class="mark" style="color:var(--danger);">-</span><span>Don't click links in emails without
+                checking the sender's address carefully hover to preview!</span></li>
+            <li><span class="mark" style="color:var(--danger);">-</span><span>Don't plug unknown USB drives into your
+                computer ever!</span></li>
+            <li><span class="mark" style="color:var(--danger);">-</span><span>Don't share passwords by phone, email, or
+                WhatsApp IT will never ask for your password.</span></li>
+            <li><span class="mark" style="color:var(--danger);">-</span><span>Don't try to fix a suspected hack yourself
+                disconnect and report immediately.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rw-block hidden fade-up" style="max-width:900px;">
+        <div class="rw-tag">Kinyarwanda Inama y'Ukwezi</div>
+        <h3 style="font-size:22px;margin-bottom:18px;">Ibyo Ukwiriye Gukora n'Ibyo Ukwiriye Kwirinda</h3>
+        <div class="dodo-grid" style="margin-bottom:0;">
+          <div>
+            <p
+              style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:var(--success);margin-bottom:14px;">
+              IBYO UKWIRIYE GUKORA</p>
+            <ul class="check-list">
+              <li><span class="mark" style="color:var(--success);">+</span><span>Koresha ijambo ry'ibanga rikomeye
+                  (passphrase) nka <em>Coffee-Table-Sunrise-74</em>, ryoroshye kwibuka ariko rigoye kumenwa.</span></li>
+              <li><span class="mark" style="color:var(--success);">+</span><span>Fungura MFA (Multi-Factor
+                  Authentication) kuri konti zawe z'akazi zose iyo kode y'inyongera ni umutekano wawe.</span></li>
+              <li><span class="mark" style="color:var(--success);">+</span><span>Hamagara kuri nimero izwi niba hari
+                  ugusabye kohereza amafaranga cyangwa gutanga amakuru.</span></li>
+              <li><span class="mark" style="color:var(--success);">+</span><span>Tanga raporo ako kanya niba hari ikintu
+                  kiguteye impungenge.</span></li>
+              <li><span class="mark" style="color:var(--success);">+</span><span>Koresha inzira zemewe gusa mu kohereza
+                  inyandiko z'abakiriya (ntukoreshe WhatsApp).</span></li>
+            </ul>
+          </div>
+          <div>
+            <p
+              style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:var(--danger);margin-bottom:14px;">
+              IBYO UKWIRIYE KWIRINDA</p>
+            <ul class="check-list">
+              <li><span class="mark" style="color:var(--danger);">-</span><span>Ntukoreshe amagambo y'ibanga nka
+                  <em>Password123</em>, izina ryawe, cyangwa itariki y'amavuko yawe.</span></li>
+              <li><span class="mark" style="color:var(--danger);">-</span><span>Ntukande link uri muri email utabanje
+                  kugenzura neza aderesi y'uwohereje.</span></li>
+              <li><span class="mark" style="color:var(--danger);">-</span><span>Ntuzigere winjiza USB utazi aho
+                  yaturutse mu mudasobwa wawe.</span></li>
+              <li><span class="mark" style="color:var(--danger);">-</span><span>Ntusangize ijambo ry'ibanga kuri
+                  telefoni, email, cyangwa WhatsApp IT ntirizigera rikubaze password yawe.</span></li>
+              <li><span class="mark" style="color:var(--danger);">-</span><span>Ntugerageze gukemura hacking wigenga
+                  yungura murandasi kandi utange raporo ako kanya.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  REAL-LIFE SCENARIO  -->
+  <section class="scenario-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up" style="text-align:center;margin-bottom:50px;">
+        <p class="sec-label" style="justify-content:center;">04 Real-Life Scenario Urugero rwo mu Buzima Busanzwe</p>
+        <h2 class="sec-heading" style="text-align:center;">The Urgent Email That<br>Could Cost <em>Millions</em></h2>
+      </div>
+
+      <!-- ENGLISH -->
+      <div class="scenario-card fade-up">
+        <p class="scenario-label">English Case Study</p>
+        <h3>The Urgent Email That Could Cost Millions</h3>
+        <p>Amina works in the Finance department. One morning, she receives an email that looks exactly like it's from
+          the CFO. It says: <em style="color:rgba(212,207,196,0.8);">"Amina, please urgently change the vendor bank
+            details in the system and approve the transfer. I'm in a meeting. Do not delay."</em></p>
+        <p>The email looks perfect right logo, right signature. But something feels off. Amina decides to call the CFO
+          directly using his number from the company directory (not from the email). The CFO confirms: he sent no such
+          email.</p>
+        <p>Amina reports it to IT Security immediately. The attackers had created a fake email address almost identical
+          to the real one. A similar scam in Kenya resulted in a loss of over <strong style="color:var(--danger);">KSh
+            1.5 billion</strong>.</p>
+        <div class="scenario-lesson">
+          <p>Lesson: Always verify unusual or urgent requests by calling back on a known number. Urgency is a
+            manipulation tactic. When in doubt <strong>stop, verify, report.</strong></p>
+        </div>
+      </div>
+
+      <!-- KINYARWANDA -->
+      <div class="scenario-card rw-block hidden fade-up"
+        style="max-width:820px;margin:24px auto 0;background:rgba(10,26,66,0.7);border:1px solid rgba(201,168,76,0.15);padding:50px 48px;">
+        <div class="rw-tag">Kinyarwanda Urugero rwo mu Buzima Busanzwe</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);margin-bottom:18px;">Email
+          Yihutirwa Yashoboraga Gutwara Miliyoni Nyinshi</h3>
+        <p style="font-size:14px;line-height:1.9;margin-bottom:12px;">Amina akora mu ishami ry'Imari. Umunsi umwe mu
+          gitondo, yakiriye email isa neza cyane nk'aho yaturutse ku Muyobozi Mukuru ushinzwe Imari (CFO). Yavugaga iti:
+          <em style="color:rgba(212,207,196,0.7);">"Amina, hindura byihutirwa amakuru ya konti ya banki y'umucuruzi muri
+            sisitemu kandi wemere ko amafaranga ahita yoherezwa. Ndi mu nama. Ntutinde."</em>
+        </p>
+        <p style="font-size:14px;line-height:1.9;margin-bottom:12px;">Email yasaga n'iy'ukuri rwose logo nziza, umukono
+          wuzuye. Ariko hari ikintu cyamuteye gushidikanya. Amina yahisemo guhamagara CFO kuri nimero ye iri mu gitabo
+          cy'amakuru cy'ikigo (ntiyifashishije nimero iri muri email). CFO yemeje ko atigeze yohereza iyo email.</p>
+        <p style="font-size:14px;line-height:1.9;margin-bottom:18px;">Amina yahise atanga raporo ku ishami rya IT
+          Security. Abatekamutwe bari bakoze aderesi ya email y'ibinyoma isa cyane n'iy'ukuri. Uburiganya busa nk'ubwo
+          muri Kenya bwateje igihombo kirenga <strong style="color:var(--danger);">miliyari 1.5 z'Amashilingi ya
+            Kenya</strong>.</p>
+        <div class="scenario-lesson">
+          <p>Isomo: Buri gihe genzura ibyifuzo bidasanzwe cyangwa byihutirwa uhamagara kuri nimero usanzwe uzi.
+            "Byihutirwa" ni amayeri yo gushuka. Iyo ushidikanya <strong>hagarara, genzura, tanga raporo.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  PASSWORDS  -->
+  <section class="pass-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">05 Passwords and Login Amagambo y'Ibanga</p>
+        <h2 class="sec-heading">How to Create a Password<br><em>No One Can Guess</em></h2>
+        <p class="sec-desc">Forget short, complicated passwords. Use a passphrase 3 to 5 random words with a number and
+          symbol. Easier to remember and much harder to crack!</p>
+      </div>
+
+      <div class="pass-steps fade-up">
+        <div class="pass-step">
+          <div class="step-num">01</div>
+          <span class="step-label">Step One</span>
+          <p class="step-title">Pick 35 Unrelated Words</p>
+          <div class="step-ex">Market + Giraffe + Notebook</div>
+          <p style="font-size:12px;margin-top:10px;">Choose words that mean nothing together the more random, the
+            better.</p>
+        </div>
+        <div class="pass-step">
+          <div class="step-num">02</div>
+          <span class="step-label">Step Two</span>
+          <p class="step-title">Add a Number</p>
+          <div class="step-ex">MarketGiraffe7Notebook</div>
+          <p style="font-size:12px;margin-top:10px;">Put a number anywhere in your phrase not just at the end.</p>
+        </div>
+        <div class="pass-step">
+          <div class="step-num">03</div>
+          <span class="step-label">Step Three</span>
+          <p class="step-title">Add a Symbol</p>
+          <div class="step-ex">Market!Giraffe7Notebook</div>
+          <p style="font-size:12px;margin-top:10px;">Add one symbol like !, @, or # to make it even stronger.</p>
+        </div>
+        <div class="pass-step">
+          <div class="step-num">04</div>
+          <span class="step-label">Step Four</span>
+          <p class="step-title">Enable MFA</p>
+          <div class="step-ex">Password + SMS Code</div>
+          <p style="font-size:12px;margin-top:10px;">Always turn on Multi-Factor Authentication that one-time code is
+            your second lock.</p>
+        </div>
+      </div>
+
+      <div class="rw-block hidden fade-up">
+        <div class="rw-tag">Kinyarwanda Amagambo y'Ibanga</div>
+        <h3 style="font-size:22px;margin-bottom:14px;">Uko Wakora Ijambo ry'Ibanga Ritamenywa n'Umuntu N'umwe</h3>
+        <p style="font-size:14px;line-height:1.85;margin-bottom:16px;">Wibagirwe amagambo y'ibanga magufi kandi akomeye
+          kuyibuka. Koresha passphrase amagambo 3 kugeza kuri 5 adafitanye isano, wongeremo nimero n'ikimenyetso
+          (symbol). Biroroshye kwibuka kandi biragoye cyane kumenwa!</p>
+        <div class="pass-steps" style="margin:20px 0 0;">
+          <div class="pass-step">
+            <div class="step-num">01</div>
+            <span class="step-label">Intambwe ya 01</span>
+            <p class="step-title">Hitamo Amagambo 35 Atajyanye</p>
+            <div class="step-ex">Market + Giraffe + Notebook</div>
+            <p style="font-size:12px;margin-top:10px;">Hitamo amagambo adafite icyo ahuriyeho uko aba adahuye ni ko
+              birushaho kuba byiza.</p>
+          </div>
+          <div class="pass-step">
+            <div class="step-num">02</div>
+            <span class="step-label">Intambwe ya 02</span>
+            <p class="step-title">Ongeramo Nimero</p>
+            <div class="step-ex">MarketGiraffe7Notebook</div>
+            <p style="font-size:12px;margin-top:10px;">Shyira nimero aho ushaka hose mu nteruro yawe si ngombwa
+              kuyishyira ku mpera gusa.</p>
+          </div>
+          <div class="pass-step">
+            <div class="step-num">03</div>
+            <span class="step-label">Intambwe ya 03</span>
+            <p class="step-title">Ongeramo Ikimenyetso</p>
+            <div class="step-ex">Market!Giraffe7Notebook</div>
+            <p style="font-size:12px;margin-top:10px;">Shyiramo ikimenyetso kimwe nka !, @, cyangwa # kugira ngo
+              birusheho gukomera.</p>
+          </div>
+          <div class="pass-step">
+            <div class="step-num">04</div>
+            <span class="step-label">Intambwe ya 04</span>
+            <p class="step-title">Fungura MFA</p>
+            <div class="step-ex">Ijambo + Kode ya SMS</div>
+            <p style="font-size:12px;margin-top:10px;">Buri gihe fungura Multi-Factor Authentication iyo kode ni
+              nk'urufunguzo rwa kabiri ku muryango wawe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  DATA CLASSIFICATION  -->
+  <section class="data-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">06 Data Classification Itondekanya ry'Amakuru</p>
+        <h2 class="sec-heading">What Type of Information<br>Are You <em>Handling?</em></h2>
+        <p class="sec-desc">Not all information needs the same protection. Here's a simple guide if you are unsure,
+          treat it as Confidential and ask!</p>
+      </div>
+
+      <div class="fade-up">
+        <div class="class-grid">
+
+          <!-- PUBLIC -->
+          <div class="class-card cc-public">
+            <span class="cc-badge level-badge level-public">Public</span>
+            <p class="cc-meaning">Safe to share with anyone</p>
+            <p class="cc-examples">Brochures, fee schedules, job ads</p>
+            <p class="cc-rule">Share freely — no personal information included</p>
+          </div>
+
+          <!-- INTERNAL -->
+          <div class="class-card cc-internal">
+            <span class="cc-badge level-badge level-internal">Internal</span>
+            <p class="cc-meaning">For Goshen staff only</p>
+            <p class="cc-examples">Internal memos, meeting notes, policies</p>
+            <p class="cc-rule">Do not share outside the bank</p>
+          </div>
+
+          <!-- CONFIDENTIAL -->
+          <div class="class-card cc-conf">
+            <span class="cc-badge level-badge level-conf">Confidential</span>
+            <p class="cc-meaning">Sensitive — limited access</p>
+            <p class="cc-examples">Customer IDs, loan records, contracts</p>
+            <p class="cc-rule">Encrypt &amp; share only with authorised people</p>
+          </div>
+
+          <!-- RESTRICTED -->
+          <div class="class-card cc-rest">
+            <span class="cc-badge level-badge level-rest">Restricted</span>
+            <p class="cc-meaning">Highest protection required</p>
+            <p class="cc-examples">Passwords, payment files, account credentials</p>
+            <p class="cc-rule">Strict access, encryption mandatory, special approval</p>
+          </div>
+
+        </div>
+
+        <div class="data-rule">
+          <p><strong style="color:var(--gold-light);">Quick rule:</strong> If the data identifies a person — at least
+            Confidential. If it involves money or legal status — Restricted. When in doubt, ask your manager or IT.</p>
+        </div>
+
+        <div class="rw-block hidden" style="margin-top:32px;">
+          <div class="rw-tag">Kinyarwanda — Itondekanya ry'Amakuru</div>
+          <h3 style="font-size:20px;margin-bottom:14px;">Ni Ayahe Makuru Uri Gukorana Na Yo?</h3>
+          <p style="font-size:14px;line-height:1.85;margin-bottom:20px;">Si amakuru yose akeneye uburinzi bungana. Dore
+            ubuyobozi bworoshye — niba ushidikanya, afate nk'Amakuru y'Ibanga (Confidential) maze ubaze!</p>
+
+          <div class="class-grid">
+
+            <!-- RUSANGE -->
+            <div class="class-card cc-public">
+              <span class="cc-badge level-badge level-public">Rusange</span>
+              <p class="cc-meaning">Ashobora gusangizwa umuntu uwo ari we wese</p>
+              <p class="cc-examples">Brochures, ibiciro bya serivisi, amatangazo y'akazi</p>
+              <p class="cc-rule">Ashobora gusangizwa bose — si ngombwa hagiremo amakuru y'umuntu ku giti cye</p>
+            </div>
+
+            <!-- MU KIGO GUSA -->
+            <div class="class-card cc-internal">
+              <span class="cc-badge level-badge level-internal">Mu Kigo Gusa</span>
+              <p class="cc-meaning">Ayo kuguma mu bakozi ba Goshen gusa</p>
+              <p class="cc-examples">Amabaruwa yo mu kigo, inyandiko z'inama, amabwiriza</p>
+              <p class="cc-rule">Ntugasangize hanze ya banki</p>
+            </div>
+
+            <!-- IBANGA -->
+            <div class="class-card cc-conf">
+              <span class="cc-badge level-badge level-conf">Ibanga</span>
+              <p class="cc-meaning">Amakuru akomeye agomba kugabanywa ku bantu bake</p>
+              <p class="cc-examples">Indangamuntu z'abakiriya, inyandiko z'inguzanyo, amasezerano</p>
+              <p class="cc-rule">Shyiraho encryption kandi usangize gusa ababyemerewe</p>
+            </div>
+
+            <!-- AKENEYE UBURINZI BUKOMEYE -->
+            <div class="class-card cc-rest">
+              <span class="cc-badge level-badge level-rest">Uburinzi Bukomeye</span>
+              <p class="cc-meaning">Akeneye uburinzi bwo ku rwego rwo hejuru</p>
+              <p class="cc-examples">Amagambo y'ibanga, dosiye z'amafaranga, amakuru ya konti</p>
+              <p class="cc-rule">Uburenganzira bukomeye, encryption ni itegeko, bisaba uburenganzira bwihariye</p>
+            </div>
+
+          </div>
+
+          <div class="data-rule" style="margin-top:16px;">
+            <p><strong style="color:var(--gold-light);">Itegeko ryihuse:</strong> Niba amakuru agaragaza umuntu ku giti
+              cye — nibura ubifate nk'ibanga. Niba ajyanye n'amafaranga cyangwa amategeko — ubifate nk'Ibujijwe. Iyo
+              ushidikanya, baza umuyobozi wawe cyangwa ishami rya IT.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  RED FLAGS  -->
+  <section class="flags-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">07 Red Flags Checklist Ibimenyetso By'Akaga</p>
+        <h2 class="sec-heading">Warning Signs You Should<br><em>Never Ignore</em></h2>
+      </div>
+      <div class="flags-list fade-up">
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Email asking for your password, or with a suspicious link you didn't expect.</p>
+            <p class="rw-p hidden">Email igusaba ijambo ry'ibanga (password) cyangwa irimo link iteye amakenga utari
+              witeze.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Anyone pressuring you to act fast urgency is a manipulation tactic.</p>
+            <p class="rw-p hidden">Umuntu ugushyiraho igitutu ngo ukore vuba vuba "byihutirwa" ni amayeri yo gushuka.
+            </p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>A USB drive left somewhere labeled or unlabeled that doesn't belong to you.</p>
+            <p class="rw-p hidden">USB ishyizwe ahantu hose yanditseho cyangwa itanditseho itari iyawe.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Someone in the office you don't recognize, especially in restricted areas.</p>
+            <p class="rw-p hidden">Umuntu mu biro utamenya, cyane cyane uri mu bice byabujijwe (restricted areas).</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>A request to change vendor or payroll bank account details always verify by phone.</p>
+            <p class="rw-p hidden">Icyifuzo cyo guhindura konti ya banki y'umucuruzi cyangwa iy'imishahara buri gihe
+              banza uhamagare wemeze.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Your computer acting strange slow, pop-ups, locked files report it immediately.</p>
+            <p class="rw-p hidden">Mudasobwa yawe ikora mu buryo budasanzwe igenda gahoro, pop-ups nyinshi, dosiye
+              zifunze hita utanga raporo!</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Customer sends ID or loan documents via WhatsApp use the secure portal only.</p>
+            <p class="rw-p hidden">Umukiriya wohereza indangamuntu cyangwa inyandiko z'inguzanyo kuri WhatsApp koresha
+              portal yizewe gusa.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-dot"></div>
+          <div>
+            <p>Anyone asking for your password, even if they claim to be from IT IT never asks this.</p>
+            <p class="rw-p hidden">Umuntu ugusaba ijambo ry'ibanga, n'iyo yiyita ko ari uwa IT ishami rya IT ntirizigera
+              rigusaba password yawe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  WHAT TO DO  -->
+  <section class="incident-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up" style="text-align:center;margin-bottom:50px;">
+        <p class="sec-label" style="justify-content:center;">08 Incident Response Gutanga Raporo</p>
+        <h2 class="sec-heading" style="text-align:center;">What to Do If<br><em>Something Goes Wrong</em></h2>
+        <p style="font-size:15px;color:var(--muted);max-width:480px;margin:0 auto;">Report It Immediately Here's How:
+        </p>
+      </div>
+      <div class="steps-list fade-up">
+        <div class="inc-step">
+          <div class="inc-num">01</div>
+          <div class="inc-content">
+            <h4>Stop Don't Click Anything Else</h4>
+            <p>If you think you clicked a bad link or see something suspicious, stop using the device immediately.</p>
+            <p class="rw-p hidden">Niba wumva wakanze link mbi cyangwa wabonye ikintu kiguteye amakenga, hita uhagarika
+              gukoresha icyo gikoresho.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">02</div>
+          <div class="inc-content">
+            <h4>Disconnect from the Internet</h4>
+            <p>Turn off Wi-Fi or unplug the network cable. Do NOT turn the computer off completely just disconnect from
+              the network.</p>
+            <p class="rw-p hidden">Zimya Wi-Fi cyangwa ukureho umugozi wa network. Ntuzimye mudasobwa burundu uyikure ku
+              muyoboro gusa.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">03</div>
+          <div class="inc-content">
+            <h4>Take a Screenshot or Note the Details</h4>
+            <p>Write down the time, what happened, and take a photo of the screen if possible. This helps IT investigate
+              quickly.</p>
+            <p class="rw-p hidden">Andika igihe byabereye n'ibyabaye, kandi niba bishoboka ufate ifoto ya screen. Ibi
+              bifasha ishami rya IT gukora iperereza vuba.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">04</div>
+          <div class="inc-content">
+            <h4>Report Using a Safe Device</h4>
+            <p>Use a different phone or computer to report to IT Security right away. Don't delay early reporting limits
+              the damage.</p>
+            <p class="rw-p hidden">Koresha indi telefoni cyangwa indi mudasobwa utanga raporo ku ishami rya IT Security
+              ako kanya. Ntutinde gutanga raporo kare bigabanya ingaruka.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">05</div>
+          <div class="inc-content">
+            <h4>Do NOT Delete Anything</h4>
+            <p>Don't delete the suspicious email or files. They are evidence and IT needs them to investigate.</p>
+            <p class="rw-p hidden">Ntusibe email cyangwa dosiye iteye amakenga. Ni ibimenyetso (evidence) kandi IT
+              ibikenera mu iperereza.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  HOW TO REPORT A PHISHING EMAIL  -->
+  <section class="incident-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up" style="text-align:center;margin-bottom:50px;">
+        <p class="sec-label" style="justify-content:center;">09 Reporting Phishing Gutanga Raporo y'Email y'Uburiganya
+        </p>
+        <h2 class="sec-heading" style="text-align:center;">How to Report a<br><em>Phishing Email</em></h2>
+        <p style="font-size:15px;color:var(--muted);max-width:520px;margin:0 auto;">If you identify a phishing or
+          suspicious email, follow these steps to report it immediately.</p>
+      </div>
+      <div class="steps-list fade-up">
+        <div class="inc-step">
+          <div class="inc-num">01</div>
+          <div class="inc-content">
+            <h4>Open or Access the Suspicious Email</h4>
+            <p>Once you have identified an email as phishing or suspicious, open it — do not click any links or download
+              any attachments within it.</p>
+            <p class="rw-p hidden">Nuhisemo ko email ari iy'uburiganya cyangwa iteye amakenga, yifungure — ariko
+              ntugende ukande na link imwe cyangwa gukurura attachment iri muri yo.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">02</div>
+          <div class="inc-content">
+            <h4>Click the Three-Dot Menu in the Top Right Corner</h4>
+            <p>Locate the three-dot icon (...) at the top right corner of the email and click on it to access the email's
+              options menu.</p>
+            <p class="rw-p hidden">Shaka akazu ka ntandatu (...) ari mu rukuta rwo hejuru iburyo bw'email maze ukande
+              kugira ngo ugere ku menyu y'amahitamo y'iyo email.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">03</div>
+          <div class="inc-content">
+            <h4>Hover Over the "Report" Option</h4>
+            <p>In the options menu that appears, move your cursor over the <strong
+                style="color:var(--gold-light);">Report</strong> option to reveal the sub-menu.</p>
+            <p class="rw-p hidden">Muri menyu y'amahitamo igaragara, shyira cursor yawe hejuru y'icyanditswe <strong
+                style="color:var(--gold-light);">Report</strong> kugira ngo urebe amahitamo yavuyemo.</p>
+          </div>
+        </div>
+        <div class="inc-step">
+          <div class="inc-num">04</div>
+          <div class="inc-content">
+            <h4>Select "Report Phishing"</h4>
+            <p>Click on <strong style="color:var(--gold-light);">Report Phishing</strong>. The suspicious email will be
+              automatically forwarded to the IT Security support team for immediate review and action.</p>
+            <p class="rw-p hidden">Kanda kuri <strong style="color:var(--gold-light);">Report Phishing</strong>. Iyo
+              email iteye amakenga izahita yoherezwa ku itsinda rya IT Security kugira ngo bayisuzume vuba kandi bagire
+              icyo bakora.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  CONTACT  -->
+  <section class="contact-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up">
+        <p class="sec-label">10 Report a Security Incident Gutangaza Ikibazo</p>
+        <h2 class="sec-heading">How to Reach<br><em>IT Security</em></h2>
+      </div>
+      <div class="contact-grid fade-up">
+        <div class="contact-card">
+          <span class="contact-type">Emergency Hotline Umurongo w'Inshingano</span>
+          <div class="contact-val">+250 788 24 34 82</div>
+          <p class="contact-sub">For urgent, immediate threats</p>
+          <p class="contact-rw hidden">Kuri ibibazo byihutirwa, by'ako kanya</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-type">Incident Reporting Email Email yo Gutanga Raporo</span>
+          <div class="contact-val" style="font-size:18px;">securitysupport@<br>goshenfinance.rw</div>
+          <p class="contact-sub">For non-urgent security questions</p>
+          <p class="contact-rw hidden">Kuri ibibazo by'umutekano bidahutirwa cyane</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  QUIZ  -->
+  <section class="quiz-sec" style="padding:90px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="fade-up" style="text-align:center;margin-bottom:50px;">
+        <p class="sec-label" style="justify-content:center;">11 Quick Quiz Ikizamini Cyihuse</p>
+        <h2 class="sec-heading" style="text-align:center;">Let's Test What<br>You've <em>Learned</em></h2>
+      </div>
+      <div class="quiz-wrap fade-up">
+        <!-- Q1 -->
+        <div class="quiz-q">
+          <h3>Q1. You receive an email from "IT Support" asking for your password to fix an account issue. What do you
+            do?</h3>
+          <p class="rw-q hidden">Q1. Wakiriye email ivuye ku "IT Support" igusaba ijambo ry'ibanga ryawe kugira ngo
+            bakemure ikibazo kuri konti. Ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Share my password
+                they need it to help me.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span>Don't share it.
+                IT will NEVER ask for your password. Report it!</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span>Reply asking if
+                they are sure they need it.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! IT will never ask for your password. Always report these
+            requests. / Nibyo! IT ntirizigera rikubaza password yawe. Buri gihe tanga raporo.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. IT will NEVER ask for your password for any reason. Report
+            immediately to IT Security. / Sibyo. IT ntirizigera rikubaza password yawe ku mpamvu iyo ariyo yose. Tanga
+            raporo ako kanya.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-q">
+          <h3>Q2. You find a USB drive labeled "Staff Bonuses 2025" in the printer tray. What do you do?</h3>
+          <p class="rw-q hidden">Q2. Ubona USB yanditseho "Staff Bonuses 2025" mu icapiro. Ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Plug it in to see
+                who it belongs to.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">B</span><span>Leave it there for
+                someone else to deal with.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">C</span><span>Do NOT plug it
+                in. Put it in an envelope and report it to IT Security.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Never plug in unknown USB drives even labeled ones. Report to
+            IT immediately. / Nibyo! Ntuzigere winjiza USB utazi aho yaturutse n'izanditseho. Tanga raporo ku IT ako
+            kanya.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Never plug in unknown USB drives the label could be a trap!
+            Report it to IT Security immediately. / Sibyo. Ntuzigere winjiza USB utazi aho yaturutse inyandiko ishobora
+            kuba umutego! Tanga raporo ku IT ako kanya.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-q">
+          <h3>Q3. Which of these is the strongest password?</h3>
+          <p class="rw-q hidden">Q3. Ni irihe jambo ry'ibanga rikomeye kurusha ibindi?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Goshen2024!</span>
+            </div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span
+                class="opt-letter">B</span><span>Coffee!Giraffe7Notebook</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span>12345678</span>
+            </div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A passphrase with unrelated words, numbers and symbols is the
+            strongest. / Nibyo! Passphrase irimo amagambo atajyanye, nimero n'ikimenyetso ni yo ikomeye cyane.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. The strongest password is a passphrase like
+            Coffee!Giraffe7Notebook long, random, and hard to guess. / Sibyo. Ijambo ry'ibanga rikomeye ni passphrase
+            nka Coffee!Giraffe7Notebook rirerure, ridasanzwe kandi rigoye kumenwa.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  CLOSING / CTA  -->
+  <section
+    style="background:linear-gradient(180deg,rgba(8,18,50,0.99) 0%,var(--navy-mid) 100%);padding:110px 40px;text-align:center;position:relative;overflow:hidden;">
+    <div
+      style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(201,168,76,0.06),transparent);pointer-events:none;">
+    </div>
+    <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;" class="fade-up">
+      <div style="width:50px;height:2px;background:var(--gold);margin:0 auto 36px;opacity:0.5;"></div>
+      <h2
+        style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,58px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:24px;">
+        Together We Are <em style="color:var(--gold);font-style:italic;">Goshen's<br>Strongest Shield</em>
+      </h2>
+      <p style="font-size:16px;line-height:1.9;color:var(--muted);margin-bottom:18px;">Cybersecurity is not just an IT
+        responsibility it belongs to every single one of us. When we each play our part, we create a network of
+        protection far stronger than any software.</p>
+      <p
+        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--gold-light);margin-bottom:40px;">
+        "Security is everyone's responsibility. Own it."</p>
+      <div
+        style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);padding:30px 38px;display:inline-block;text-align:left;">
+        <p
+          style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:4px;color:var(--gold);margin-bottom:14px;">
+          REPORT AN INCIDENT</p>
+        <p style="font-size:15px;color:#b0c0d8;line-height:1.75;">If you suspect a cyber incident, <strong
+            style="color:white;">do not wait</strong>.<br>Contact IT Security <strong style="color:white;">+250 788 24
+            34 82</strong><br>Early reporting saves data, money, and reputation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!--  FOOTER  -->
+  <footer>
+    <div class="footer-logo">Goshen <span>Finance</span> Plc</div>
+    <div class="footer-tagline">Cybersecurity Awareness Newsletter Volume 1, Issue 1 2026</div>
+    <div class="footer-bar"></div>
+    <p class="footer-note">This newsletter is intended for internal use by Goshen Finance Plc employees only. Content
+      has been prepared by the IT Security team to promote cybersecurity best practices across the organisation. For
+      questions, contact your IT Security team at <strong>securitysupport@goshenfinance.rw</strong></p>
+    <div class="footer-bar"></div>
+    <p class="footer-copy"> 2026 Goshen Finance Plc. All rights reserved. Protecting Our People, Our Customers, Our
+      Future.</p>
+  </footer>
+
+  <!--  SCRIPTS  -->
+  <script>
+    //  SCROLL ANIMATIONS 
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      const parent = el.closest('.threats-grid, .steps-list, .flags-list, .pass-steps, .quiz-wrap');
+      if (parent) el.style.transitionDelay = `${Array.from(parent.children).indexOf(el) * 0.07}s`;
+      obs.observe(el);
+    });
+
+    //  NAVBAR SCROLL 
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar') && (document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30));
+    });
+
+    //  KINYARWANDA TOGGLE 
+    let rwVisible = false;
+    function toggleRW() {
+      rwVisible = !rwVisible;
+      // toggle all rw-block elements
+      document.querySelectorAll('.rw-block').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // toggle inline rw-p spans in flag items and inc-steps
+      document.querySelectorAll('.rw-p, .rw-q').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // toggle threat-rw blocks
+      document.querySelectorAll('.threat-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // toggle contact-rw
+      document.querySelectorAll('.contact-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // update button
+      const btn = document.getElementById('langTxt');
+      btn.textContent = rwVisible ? 'Hide Kinyarwanda' : 'Show Kinyarwanda';
+    }
+
+    //  QUIZ 
+    function answerQ(opt, result) {
+      const qBlock = opt.closest('.quiz-q');
+      if (qBlock.dataset.answered) return;
+      qBlock.dataset.answered = 'true';
+      const opts = qBlock.querySelectorAll('.q-opt');
+      opts.forEach(o => o.style.pointerEvents = 'none');
+      opt.classList.add(result);
+      const correct = qBlock.querySelector('.quiz-feedback.correct-fb');
+      const wrong = qBlock.querySelector('.quiz-feedback.wrong-fb');
+      if (result === 'correct') { correct.style.display = 'block'; }
+      else { wrong.style.display = 'block'; }
+    }
+  </script>
+</body>
+
+</html>
