@@ -32,11 +32,13 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
       background: var(--navy);
       color: var(--muted);
+      overflow-x: hidden;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
@@ -1649,8 +1651,26 @@
     }
 
     /* ─ RESPONSIVE ─ */
-    @media(max-width:900px) {
+    @media (max-width: 1024px) {
+      .lang-bar {
+        padding: 0 24px;
+      }
 
+      .nav-menu {
+        gap: 6px 14px;
+        margin: 0 16px;
+      }
+
+      .nav-link {
+        font-size: 11px;
+      }
+
+      .section {
+        padding: 70px 28px;
+      }
+    }
+
+    @media (max-width: 900px) {
       .threats-grid,
       .dodo-grid,
       .contact-grid {
@@ -1685,15 +1705,293 @@
       .hero {
         padding: 80px 20px 60px;
       }
+
+      .sec-heading {
+        font-size: clamp(28px, 5vw, 42px);
+      }
+
+      .warn-banner {
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .scenario-card {
+        padding: 36px 28px !important;
+      }
+
+      .quiz-q {
+        padding: 28px 24px !important;
+      }
+
+      .contact-card {
+        padding: 28px 24px;
+      }
+
+      #intro > div,
+      .dyk-wrap > div {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      .dyk-wrap > div {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+      }
+
+      section[id] {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+      }
+
+      .inc-step {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .inc-step .inc-num {
+        position: static;
+      }
+
+      .footer-note,
+      .footer-tagline {
+        padding: 0 16px;
+      }
+
+      .cta-sec {
+        padding: 70px 24px !important;
+      }
+
+      .cta-sec .fade-up {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
 
-    @media(max-width:500px) {
+    @media (max-width: 768px) {
+      .lang-bar {
+        flex-wrap: wrap;
+        min-height: 56px;
+        height: auto;
+        padding: 12px 16px;
+        gap: 10px;
+      }
+
+      .lang-bar-logo {
+        font-size: 16px;
+        order: 1;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-menu {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        gap: 8px 16px;
+      }
+
+      .lang-bar-right {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .issue-badge {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      .lang-btn .lang-txt {
+        font-size: 12px;
+      }
+
+      .hero-title {
+        font-size: clamp(36px, 10vw, 52px);
+      }
+
+      .hero-edition {
+        font-size: 10px;
+        letter-spacing: 4px;
+      }
+
+      .hero-vol {
+        font-size: 11px;
+      }
+
+      .shield-svg {
+        width: 80px;
+        height: 88px;
+      }
+
+      .shield-wrap {
+        margin-bottom: 24px;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-item {
+        padding: 28px 20px;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+      }
+
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+
+      .stat-num {
+        font-size: 42px;
+      }
+
+      .section-quiz .quiz-q {
+        padding: 24px 20px !important;
+      }
+
+      .section-quiz-title {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      footer {
+        padding: 40px 20px;
+      }
+
+      .footer-logo {
+        font-size: 26px;
+      }
+
+      .footer-tagline {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      .cta-sec {
+        padding: 60px 20px !important;
+      }
+    }
+
+    @media (max-width: 500px) {
       .pass-steps {
         grid-template-columns: 1fr;
       }
 
       .welcome-card {
         padding: 32px 24px;
+      }
+
+      .lang-bar-logo {
+        font-size: 15px;
+      }
+
+      .nav-link {
+        font-size: 11px;
+        padding: 4px 6px;
+      }
+
+      .hero {
+        padding: 60px 16px 48px;
+      }
+
+      .hero-title {
+        font-size: clamp(28px, 9vw, 40px);
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+
+      section[id] {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+      }
+
+      #intro > div,
+      .dyk-wrap > div {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .dyk-wrap > div {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+      }
+
+      .threat-card {
+        padding: 28px 24px;
+      }
+
+      .threat-num {
+        font-size: 36px;
+      }
+
+      .warn-banner {
+        padding: 16px 20px;
+      }
+
+      .scenario-card {
+        padding: 28px 20px !important;
+      }
+
+      .quiz-q {
+        padding: 24px 20px !important;
+      }
+
+      .quiz-q h3 {
+        font-size: 17px;
+      }
+
+      .q-opt {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .contact-val {
+        font-size: 22px;
+      }
+
+      .contact-card {
+        padding: 24px 20px;
+      }
+
+      .blacklist-link {
+        display: block;
+        text-align: center;
+        margin-top: 16px;
+      }
+
+      footer {
+        padding: 32px 16px;
+      }
+
+      .footer-note {
+        font-size: 12px;
+      }
+
+      .cta-sec {
+        padding: 48px 16px !important;
+      }
+
+      .cta-sec div[style*="padding:30px"] {
+        padding: 24px 20px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .issue-badge {
+        display: none;
+      }
+
+      .nav-menu {
+        gap: 6px 10px;
+      }
+
+      .nav-link {
+        font-size: 10px;
       }
     }
   </style>
@@ -2729,7 +3027,7 @@
   </section>
 
   <!--  CLOSING / CTA  -->
-  <section
+  <section class="cta-sec"
     style="background:linear-gradient(180deg,rgba(8,18,50,0.99) 0%,var(--navy-mid) 100%);padding:110px 40px;text-align:center;position:relative;overflow:hidden;">
     <div
       style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(201,168,76,0.06),transparent);pointer-events:none;">
