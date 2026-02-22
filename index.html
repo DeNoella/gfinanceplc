@@ -67,6 +67,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+    }
+
+    .lang-bar.scrolled {
+      background: rgba(5, 14, 43, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(201, 168, 76, 0.08);
     }
 
     .lang-bar-logo {
@@ -129,6 +136,49 @@
       font-family: 'Bebas Neue', sans-serif;
     }
 
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 20px;
+      margin: 0 24px;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      padding: 4px 8px;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 2px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-link .nav-rw.hidden,
+    .nav-link .nav-en.hidden {
+      display: none;
+    }
+
     /* ─ KINYARWANDA BLOCKS ─ */
     .rw-block {
       background: rgba(0, 80, 40, 0.08);
@@ -189,7 +239,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('C:/Users/PC/.gemini/antigravity/brain/261e8043-2ebc-4c46-9848-b11eece33b8c/cyber_hero_1771591944813.png');
+      background-image: url('assets/cybersecurity-hero-bg.png');
       background-size: cover;
       background-position: center;
     }
@@ -566,6 +616,37 @@
       letter-spacing: 2px;
       color: rgba(143, 160, 192, 0.5);
       text-transform: uppercase;
+    }
+
+    .dyk-source-link {
+      color: rgba(201, 168, 76, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .dyk-source-link:hover {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
+    .blacklist-link {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      background: rgba(201, 168, 76, 0.08);
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .blacklist-link:hover {
+      background: rgba(201, 168, 76, 0.18);
+      border-color: rgba(201, 168, 76, 0.6);
+      color: var(--gold-light);
     }
 
     .divider-gold {
@@ -1211,6 +1292,25 @@
       margin-top: 8px;
     }
 
+    /* ─ SECTION QUIZ ─ */
+    .section-quiz {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .section-quiz-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-quiz .quiz-q {
+      max-width: 640px;
+    }
+
     /* ─ QUIZ ─ */
     .quiz-sec {
       background: rgba(5, 12, 36, 0.97);
@@ -1246,6 +1346,11 @@
       margin-bottom: 22px;
       padding-bottom: 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .q-opt .opt-en.hidden,
+    .q-opt .opt-rw.hidden {
+      display: none;
     }
 
     .quiz-options {
@@ -1404,12 +1509,14 @@
       margin-bottom: 8px;
     }
 
-    .stat-lbl {
+    .stat-lbl,
+    .stat-lbl-rw {
       font-size: 11px;
       letter-spacing: 2px;
       color: #445566;
       text-transform: uppercase;
       line-height: 1.5;
+      display: block;
     }
 
     /* ─ ANIMATIONS ─ */
@@ -1597,6 +1704,13 @@
   <!-- ═════ LANGUAGE BAR ═════ -->
   <div class="lang-bar">
     <div class="lang-bar-logo">Goshen <span>Finance</span> Plc</div>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#top" class="nav-link"><span class="nav-en">Home</span><span class="nav-rw hidden">Ahabanza</span></a>
+      <a href="#threats" class="nav-link"><span class="nav-en">Threats</span><span class="nav-rw hidden">Ibitero</span></a>
+      <a href="#passwords" class="nav-link"><span class="nav-en">Password</span><span class="nav-rw hidden">Ijambo ry'Ibanga</span></a>
+      <a href="#report-phishing" class="nav-link"><span class="nav-en">Report Phishing</span><span class="nav-rw hidden">Tanga Raporo</span></a>
+      <a href="#contact" class="nav-link"><span class="nav-en">Contact</span><span class="nav-rw hidden">Twandikire</span></a>
+    </nav>
     <div class="lang-bar-right">
       <span class="issue-badge">Vol. 1 · Issue 1 · 2026</span>
       <button class="lang-btn" id="langBtn" onclick="toggleRW()" title="Show / Hide Kinyarwanda translations">
@@ -1650,11 +1764,11 @@
   </section>
 
   <!-- ═════ WELCOME ═════ -->
-  <section style="background:rgba(5,12,36,0.97);border-top:1px solid rgba(201,168,76,0.08);padding:90px 0;">
+  <section id="intro" style="background:rgba(5,12,36,0.97);border-top:1px solid rgba(201,168,76,0.08);padding:90px 0;">
     <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
       <div class="fade-up">
         <p class="sec-label">Welcome — Murakaza Neza</p>
-        <h2 class="sec-heading">A Message <em>From<br>Our Team</em></h2>
+        <h2 class="sec-heading">INTRODUCTION </h2>
       </div>
       <div class="welcome-wrap fade-up">
         <!-- ENGLISH -->
@@ -1662,7 +1776,7 @@
           <div class="lang-badge">English</div>
           <h2>Dear Goshen Finance Plc Team,</h2>
           <p>
-            Welcome to our very first <strong>Cybersecurity Awareness Newsletter!</strong> You don't need to be a tech
+            Welcome to our very first <strong>Cybersecurity Awareness Training(CAT)-Online-Edition!</strong> You don't need to be a tech
             expert to read this — in fact, this is written especially for you. Every person at Goshen Finance plays a
             vital role in keeping our bank, our customers, and their money safe.
             <br><br>
@@ -1692,7 +1806,7 @@
   </section>
 
   <!-- ═════ DID YOU KNOW ═════ -->
-  <section class="dyk-wrap">
+  <section id="did-you-know" class="dyk-wrap">
     <div style="max-width:1100px;margin:0 auto;padding:90px 40px;">
       <div class="fade-up">
         <p class="sec-label">01 — Statistics</p>
@@ -1709,11 +1823,10 @@
           <h2 class="sec-heading" style="font-size:clamp(28px,4vw,46px);margin-bottom:20px;">Did You <em>Know?</em></h2>
           <p class="dyk-text">
             Cyber criminals have stolen over <strong>USD 3 billion</strong> from African businesses and banks between
-            2019 and 2025. East Africa's financial sector is one of the most targeted. <strong>The good news?</strong>
-            Many attacks start with just one person clicking the wrong link — which means one person being careful can
-            also stop them!
+            2019 and 2025. East Africa's financial sector is one of the most targeted. Unfortunately most attacks start with just one person clicking the wrong link.
           </p>
-          <p class="dyk-source">Source: INTERPOL Africa Cyberthreat Assessment, 2025</p>
+          <p>The good news? One vigilant individual can prevent them.</p>
+          <p class="dyk-source"><a href="https://www.interpol.int/en/News-and-Events/News/2025/New-INTERPOL-report-warns-of-sharp-rise-in-cybercrime-in-Africa" target="_blank" rel="noopener noreferrer" class="dyk-source-link">Source: INTERPOL Africa Cyberthreat Assessment, 2025</a></p>
           <div class="rw-block hidden" style="margin-top:28px;">
             <div class="rw-tag">Kinyarwanda</div>
             <h3 style="font-size:22px;margin-bottom:12px;">Ese Warubizi?</h3>
@@ -1725,7 +1838,7 @@
             </p>
             <p
               style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(143,160,192,0.45);margin-top:14px;">
-              Inkomoko: Raporo ya INTERPOL Africa Cyberthreat Assessment, 2025</p>
+              Inkomoko: <a href="https://www.interpol.int/en/News-and-Events/News/2025/New-INTERPOL-report-warns-of-sharp-rise-in-cybercrime-in-Africa" target="_blank" rel="noopener noreferrer" class="dyk-source-link">Raporo ya INTERPOL Africa Cyberthreat Assessment, 2025</a></p>
           </div>
         </div>
       </div>
@@ -1735,25 +1848,29 @@
         <div class="stat-item">
           <span class="stat-num">91%</span>
           <span class="stat-lbl">of cyberattacks start with a phishing email</span>
+          <span class="stat-lbl-rw hidden">bya cyberattacks bitangirira na email y'uburiganya</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">3.4B</span>
           <span class="stat-lbl">phishing emails sent every single day globally</span>
+          <span class="stat-lbl-rw hidden">email z'uburiganya zoherejwe buri munsi ku isi</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">82%</span>
           <span class="stat-lbl">of breaches involve a human element</span>
+          <span class="stat-lbl-rw hidden">bya breach birimo ikintu cy'umuntu</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">$4.4M</span>
           <span class="stat-lbl">average cost of a data breach in 2023</span>
+          <span class="stat-lbl-rw hidden">impuzandengo y'ikigereranyo cyo gutakaza amakuru muri 2023</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═════ THREATS ═════ -->
-  <section class="threats-sec" style="padding:90px 0;">
+  <section id="threats" class="threats-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">02 — Main Threats — Ibitero Bikunze Kubaho</p>
@@ -1769,9 +1886,10 @@
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg></div>
-        <p><strong>Important:</strong> Most cyberattacks succeed because of human error — not technical failures. A
+        <p class="warn-en"><strong>Important:</strong> Most cyberattacks succeed because of human error — not technical failures. A
           single click on a suspicious link can compromise our entire bank. Your awareness is our most powerful security
           tool.</p>
+        <p class="warn-rw hidden"><strong>Ingenzi:</strong> Ibitero byinshi byo kuri murandasi bifata kubera icyaha cy'umuntu — si ubusembwa bw'ikoranabuhanga. Ukanda rimwe kuri link iteye amakenga bishobora kugira ingaruka ku banki yacu yose. Ubumenyi bwawe ni icyuma cyacu cy'umutekano gikomeye cyane.</p>
       </div>
 
       <div class="threats-grid fade-up">
@@ -1859,10 +1977,24 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>What should you do if you receive an email that looks like it's from IT asking for your password?</h3>
+          <p class="rw-q hidden">Niba wakiriye email isa nk'iy'IT igusaba ijambo ry'ibanga, ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Reply with your password so they can fix the issue.</span><span class="opt-rw hidden">Tanga ijambo ry'ibanga kugira ngo bakemure ikibazo.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Don't share it. Report it to IT Security.</span><span class="opt-rw hidden">Ntugire. Tanga raporo ku IT Security.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Forward it to a colleague to check.</span><span class="opt-rw hidden">Ohereza ku mugenzi kugira ngo agenzure.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! IT never asks for your password. Report it. / Nibyo! IT ntirizigera rikubaza ijambo ry'ibanga. Tanga raporo.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Never share your password. Report the email. / Sibyo. Ntugire ijambo ry'ibanga. Tanga raporo.</div>
+        </div>
+      </div>
     </div>
   </section>
   <!--  TIPS / DO-DONT  -->
-  <section class="tips-sec" style="padding:90px 0;">
+  <section id="tips" class="tips-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">03 Monthly Tip Inama y'Ukwezi</p>
@@ -1956,11 +2088,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>If someone calls asking you to transfer money urgently, what should you do?</h3>
+          <p class="rw-q hidden">Niba umuntu akuguhamagara akusaba kohereza amafaranga byihutirwa, ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Do it quickly because it's urgent.</span><span class="opt-rw hidden">Bikore vuba kuko byihutirwa.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Call back on a known number to verify before doing anything.</span><span class="opt-rw hidden">Hamagara kuri nimero uzi kugira ngo ugenzure mbere yo gukora icyo aricyo cyose.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Forward the request to your manager.</span><span class="opt-rw hidden">Ohereza icyifuzo ku muyobozi wawe.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Always verify independently. / Nibyo! Buri gihe genzura wigenga.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Always verify using a known number first. / Sibyo. Banza ugenzura kuri nimero uzi.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  REAL-LIFE SCENARIO  -->
-  <section class="scenario-sec" style="padding:90px 0;">
+  <section id="scenario" class="scenario-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up" style="text-align:center;margin-bottom:50px;">
         <p class="sec-label" style="justify-content:center;">04 Real-Life Scenario Urugero rwo mu Buzima Busanzwe</p>
@@ -2009,11 +2155,25 @@
             "Byihutirwa" ni amayeri yo gushuka. Iyo ushidikanya <strong>hagarara, genzura, tanga raporo.</strong></p>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>In the scenario, why did Amina avoid the scam?</h3>
+          <p class="rw-q hidden">Mu rugero, kuki Amina yirinde uburiganya?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">She didn't have access to the system.</span><span class="opt-rw hidden">Ntiyari afite uburenganzira bwo kwinjira muri sisitemu.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">She called the CFO on a known number and verified the request was fake.</span><span class="opt-rw hidden">Yahamagaye CFO kuri nimero uzi maze agenzura ko icyifuzo cyari ikinyoma.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Her manager told her not to.</span><span class="opt-rw hidden">Umuyobozi we yamubwiye kutakora.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! She verified independently. / Nibyo! Yagenzuye wigenga.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. She called back on a known number to verify. / Sibyo. Yahamagaye kuri nimero uzi kugira ngo agenzure.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  PASSWORDS  -->
-  <section class="pass-sec" style="padding:90px 0;">
+  <section id="passwords" class="pass-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">05 Passwords and Login Amagambo y'Ibanga</p>
@@ -2027,7 +2187,7 @@
           <div class="step-num">01</div>
           <span class="step-label">Step One</span>
           <p class="step-title">Pick 35 Unrelated Words</p>
-          <div class="step-ex">Market + Giraffe + Notebook</div>
+          <div class="step-ex">Neon + Artificial + Elevator</div>
           <p style="font-size:12px;margin-top:10px;">Choose words that mean nothing together the more random, the
             better.</p>
         </div>
@@ -2035,14 +2195,14 @@
           <div class="step-num">02</div>
           <span class="step-label">Step Two</span>
           <p class="step-title">Add a Number</p>
-          <div class="step-ex">MarketGiraffe7Notebook</div>
+          <div class="step-ex">NeonArtificial7Elevator</div>
           <p style="font-size:12px;margin-top:10px;">Put a number anywhere in your phrase not just at the end.</p>
         </div>
         <div class="pass-step">
           <div class="step-num">03</div>
           <span class="step-label">Step Three</span>
           <p class="step-title">Add a Symbol</p>
-          <div class="step-ex">Market!Giraffe7Notebook</div>
+          <div class="step-ex">Neon!Artificial7Elevator</div>
           <p style="font-size:12px;margin-top:10px;">Add one symbol like !, @, or # to make it even stronger.</p>
         </div>
         <div class="pass-step">
@@ -2055,18 +2215,21 @@
         </div>
       </div>
 
+      <p class="fade-up" style="margin-top:24px;"><a href="goshen-blacklisted-passwords.html" class="blacklist-link">View Goshen's blacklisted passwords page</a></p>
+
       <div class="rw-block hidden fade-up">
         <div class="rw-tag">Kinyarwanda Amagambo y'Ibanga</div>
         <h3 style="font-size:22px;margin-bottom:14px;">Uko Wakora Ijambo ry'Ibanga Ritamenywa n'Umuntu N'umwe</h3>
         <p style="font-size:14px;line-height:1.85;margin-bottom:16px;">Wibagirwe amagambo y'ibanga magufi kandi akomeye
           kuyibuka. Koresha passphrase amagambo 3 kugeza kuri 5 adafitanye isano, wongeremo nimero n'ikimenyetso
           (symbol). Biroroshye kwibuka kandi biragoye cyane kumenwa!</p>
+        <p style="margin-top:16px;"><a href="goshen-blacklisted-passwords.html" class="blacklist-link">Reba amagambo y'ibanga Goshen yarambuye (blacklisted)</a></p>
         <div class="pass-steps" style="margin:20px 0 0;">
           <div class="pass-step">
             <div class="step-num">01</div>
             <span class="step-label">Intambwe ya 01</span>
             <p class="step-title">Hitamo Amagambo 35 Atajyanye</p>
-            <div class="step-ex">Market + Giraffe + Notebook</div>
+            <div class="step-ex">Neon + Artificial + Elevator</div>
             <p style="font-size:12px;margin-top:10px;">Hitamo amagambo adafite icyo ahuriyeho uko aba adahuye ni ko
               birushaho kuba byiza.</p>
           </div>
@@ -2074,7 +2237,7 @@
             <div class="step-num">02</div>
             <span class="step-label">Intambwe ya 02</span>
             <p class="step-title">Ongeramo Nimero</p>
-            <div class="step-ex">MarketGiraffe7Notebook</div>
+            <div class="step-ex">NeonArtificial7Elevator</div>
             <p style="font-size:12px;margin-top:10px;">Shyira nimero aho ushaka hose mu nteruro yawe si ngombwa
               kuyishyira ku mpera gusa.</p>
           </div>
@@ -2082,7 +2245,7 @@
             <div class="step-num">03</div>
             <span class="step-label">Intambwe ya 03</span>
             <p class="step-title">Ongeramo Ikimenyetso</p>
-            <div class="step-ex">Market!Giraffe7Notebook</div>
+            <div class="step-ex">Neon!Artificial7Elevator</div>
             <p style="font-size:12px;margin-top:10px;">Shyiramo ikimenyetso kimwe nka !, @, cyangwa # kugira ngo
               birusheho gukomera.</p>
           </div>
@@ -2096,11 +2259,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>What makes a strong password?</h3>
+          <p class="rw-q hidden">Icyiza cy'ijambo ry'ibanga rikomeye ni iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Short and simple like "Goshen2024!"</span><span class="opt-rw hidden">Rigufi kandi roroshye nka "Goshen2024!"</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">A passphrase: 3–5 random words + number + symbol.</span><span class="opt-rw hidden">Passphrase: amagambo 3–5 adasanzwe + nimero + ikimenyetso.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Your name and birth year.</span><span class="opt-rw hidden">Izina ryawe n'umwaka wavukiyeho.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Passphrases are stronger. / Nibyo! Passphrase ni yo ikomeye.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Use a long passphrase with words, number and symbol. / Sibyo. Koresha passphrase rirerure.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  DATA CLASSIFICATION  -->
-  <section class="data-sec" style="padding:90px 0;">
+  <section id="data" class="data-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">06 Data Classification Itondekanya ry'Amakuru</p>
@@ -2200,11 +2377,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>If you're unsure how to classify information, what should you do?</h3>
+          <p class="rw-q hidden">Niba utazi uko utondekanya amakuru, ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Treat it as Public and share freely.</span><span class="opt-rw hidden">Bifate nk'rusange kandi usangize ku bantu.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Treat it as Confidential and ask your manager or IT.</span><span class="opt-rw hidden">Bifate nk'ibanga unabaze umuyobozi wawe cyangwa IT.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Delete it to be safe.</span><span class="opt-rw hidden">Siba kugira ngo ube umutekano.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! When unsure, treat as Confidential and ask. / Nibyo! Iyo utazi, bifate nk'ibanga unabaze.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. When unsure, treat as Confidential and ask. / Sibyo. Iyo utazi, bifate nk'ibanga unabaze.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  RED FLAGS  -->
-  <section class="flags-sec" style="padding:90px 0;">
+  <section id="red-flags" class="flags-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">07 Red Flags Checklist Ibimenyetso By'Akaga</p>
@@ -2274,11 +2465,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>Which of these is a red flag you should never ignore?</h3>
+          <p class="rw-q hidden">Ni ikihe kimenyetso cy'akaga utagomba gusuzuma?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">A colleague saying good morning.</span><span class="opt-rw hidden">Umugenzi uvuga "good morning".</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">An email asking for your password or with an unexpected link.</span><span class="opt-rw hidden">Email igusaba ijambo ry'ibanga cyangwa irimo link utari witeze.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">A reminder about a team meeting.</span><span class="opt-rw hidden">Iburira kuri inama y'itsinda.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Never respond to password requests or suspicious links. / Nibyo! Ntugire ijambo ry'ibanga cyangwa ukande link iteye amakenga.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Emails asking for passwords or with suspicious links are red flags. / Sibyo. Email igusaba password cyangwa irimo link ni kimenyetso.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  WHAT TO DO  -->
-  <section class="incident-sec" style="padding:90px 0;">
+  <section id="incident" class="incident-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up" style="text-align:center;margin-bottom:50px;">
         <p class="sec-label" style="justify-content:center;">08 Incident Response Gutanga Raporo</p>
@@ -2336,11 +2541,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>If you think you clicked a bad link, what should you do first?</h3>
+          <p class="rw-q hidden">Niba wumva wakanze link mbi, ukora iki banza?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Delete the email and restart your computer.</span><span class="opt-rw hidden">Siba email hanyuma usubize mudasobwa.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Stop, disconnect from the network, then report to IT using another device.</span><span class="opt-rw hidden">Hagarara, ukure ku muyoboro, hanyuma utange raporo ku IT ukoresheje indi mudasobwa.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Reply to the email to ask if it was real.</span><span class="opt-rw hidden">Subiza email kugira ngo ubaze niba yari y'ukuri.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Stop, disconnect, then report. Don't delete evidence. / Nibyo! Hagarara, ukure ku network, hanyuma utange raporo. Ntusibe ibimenyetso.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Stop using the device, disconnect, and report. Keep the email as evidence. / Sibyo. Hagarara, ukure ku network, unatange raporo.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  HOW TO REPORT A PHISHING EMAIL  -->
-  <section class="incident-sec" style="padding:90px 0;">
+  <section id="report-phishing" class="incident-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up" style="text-align:center;margin-bottom:50px;">
         <p class="sec-label" style="justify-content:center;">09 Reporting Phishing Gutanga Raporo y'Email y'Uburiganya
@@ -2392,11 +2611,25 @@
           </div>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>To report a phishing email, where do you find the "Report Phishing" option?</h3>
+          <p class="rw-q hidden">Kugira ngo utange raporo email y'uburiganya, "Report Phishing" usanga he?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">In the subject line of the email.</span><span class="opt-rw hidden">Mu ngingo y'email.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">In the three-dot menu (…) at the top right of the email, under Report.</span><span class="opt-rw hidden">Muri menyu y'amakazu atandatu (…) hejuru iburyo bw'email, munsi ya Report.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">By replying to the email.</span><span class="opt-rw hidden">Kubisubiza email.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Use the three-dot menu → Report → Report Phishing. / Nibyo! Koresha menyu (...) → Report → Report Phishing.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Use the three-dot menu in the top right, then Report → Report Phishing. / Sibyo. Koresha menyu (...) hejuru iburyo.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  CONTACT  -->
-  <section class="contact-sec" style="padding:90px 0;">
+  <section id="contact" class="contact-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up">
         <p class="sec-label">10 Report a Security Incident Gutangaza Ikibazo</p>
@@ -2416,11 +2649,25 @@
           <p class="contact-rw hidden">Kuri ibibazo by'umutekano bidahutirwa cyane</p>
         </div>
       </div>
+      <div class="section-quiz fade-up">
+        <p class="section-quiz-title">Quick check — Egihe gito</p>
+        <div class="quiz-q">
+          <h3>You suspect a cyber incident. What should you do?</h3>
+          <p class="rw-q hidden">Wibaza ko habaye cyber incident. Ukora iki?</p>
+          <div class="quiz-options">
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Wait until the next day to see if it was serious.</span><span class="opt-rw hidden">Tegeka kugeza ejo kugira ngo urebe niba byari by'ukuri.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Contact IT Security immediately: +250 788 24 34 82 or securitysupport@goshenfinance.rw</span><span class="opt-rw hidden">Twandikira IT Security ako kanya: +250 788 24 34 82 cyangwa securitysupport@goshenfinance.rw</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Try to fix it yourself first.</span><span class="opt-rw hidden">Gerageza gukemura wigenga banza.</span></div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Report immediately. Early reporting limits damage. / Nibyo! Tanga raporo ako kanya.</div>
+          <div class="quiz-feedback wrong-fb">Incorrect. Do not wait. Contact IT Security right away. / Sibyo. Ntutinde. Twandikira IT Security ako kanya.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!--  QUIZ  -->
-  <section class="quiz-sec" style="padding:90px 0;">
+  <section id="quiz" class="quiz-sec" style="padding:90px 0;">
     <div class="section" style="padding-top:0;padding-bottom:0;">
       <div class="fade-up" style="text-align:center;margin-bottom:50px;">
         <p class="sec-label" style="justify-content:center;">11 Quick Quiz Ikizamini Cyihuse</p>
@@ -2434,12 +2681,9 @@
           <p class="rw-q hidden">Q1. Wakiriye email ivuye ku "IT Support" igusaba ijambo ry'ibanga ryawe kugira ngo
             bakemure ikibazo kuri konti. Ukora iki?</p>
           <div class="quiz-options">
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Share my password
-                they need it to help me.</span></div>
-            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span>Don't share it.
-                IT will NEVER ask for your password. Report it!</span></div>
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span>Reply asking if
-                they are sure they need it.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Share my password they need it to help me.</span><span class="opt-rw hidden">Tanga ijambo ry'ibanga kuko bakeneye kugira ngo bantange.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Don't share it. IT will NEVER ask for your password. Report it!</span><span class="opt-rw hidden">Ntugire. IT ntirizigera rikubaza ijambo ry'ibanga. Tanga raporo!</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">Reply asking if they are sure they need it.</span><span class="opt-rw hidden">Subiza ubaze niba bakeneye rwose.</span></div>
           </div>
           <div class="quiz-feedback correct-fb">Correct! IT will never ask for your password. Always report these
             requests. / Nibyo! IT ntirizigera rikubaza password yawe. Buri gihe tanga raporo.</div>
@@ -2453,12 +2697,9 @@
           <h3>Q2. You find a USB drive labeled "Staff Bonuses 2025" in the printer tray. What do you do?</h3>
           <p class="rw-q hidden">Q2. Ubona USB yanditseho "Staff Bonuses 2025" mu icapiro. Ukora iki?</p>
           <div class="quiz-options">
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Plug it in to see
-                who it belongs to.</span></div>
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">B</span><span>Leave it there for
-                someone else to deal with.</span></div>
-            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">C</span><span>Do NOT plug it
-                in. Put it in an envelope and report it to IT Security.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Plug it in to see who it belongs to.</span><span class="opt-rw hidden">Winjize kugira ngo urebe uwayo.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">B</span><span class="opt-en">Leave it there for someone else to deal with.</span><span class="opt-rw hidden">Isigire aho undi azasuzuma.</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">C</span><span class="opt-en">Do NOT plug it in. Put it in an envelope and report it to IT Security.</span><span class="opt-rw hidden">Ntuyinjize. Shyira mu envelope hanyuma utange raporo ku IT Security.</span></div>
           </div>
           <div class="quiz-feedback correct-fb">Correct! Never plug in unknown USB drives even labeled ones. Report to
             IT immediately. / Nibyo! Ntuzigere winjiza USB utazi aho yaturutse n'izanditseho. Tanga raporo ku IT ako
@@ -2473,12 +2714,9 @@
           <h3>Q3. Which of these is the strongest password?</h3>
           <p class="rw-q hidden">Q3. Ni irihe jambo ry'ibanga rikomeye kurusha ibindi?</p>
           <div class="quiz-options">
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span>Goshen2024!</span>
-            </div>
-            <div class="q-opt" onclick="answerQ(this,'correct')"><span
-                class="opt-letter">B</span><span>Coffee!Giraffe7Notebook</span></div>
-            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span>12345678</span>
-            </div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">A</span><span class="opt-en">Goshen2024!</span><span class="opt-rw hidden">Goshen2024!</span></div>
+            <div class="q-opt" onclick="answerQ(this,'correct')"><span class="opt-letter">B</span><span class="opt-en">Coffee!Giraffe7Notebook</span><span class="opt-rw hidden">Coffee!Giraffe7Notebook</span></div>
+            <div class="q-opt" onclick="answerQ(this,'wrong')"><span class="opt-letter">C</span><span class="opt-en">12345678</span><span class="opt-rw hidden">12345678</span></div>
           </div>
           <div class="quiz-feedback correct-fb">Correct! A passphrase with unrelated words, numbers and symbols is the
             strongest. / Nibyo! Passphrase irimo amagambo atajyanye, nimero n'ikimenyetso ni yo ikomeye cyane.</div>
@@ -2550,7 +2788,8 @@
 
     //  NAVBAR SCROLL 
     window.addEventListener('scroll', () => {
-      document.getElementById('navbar') && (document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30));
+      const bar = document.querySelector('.lang-bar');
+      if (bar) bar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     //  KINYARWANDA TOGGLE 
@@ -2565,6 +2804,18 @@
       document.querySelectorAll('.threat-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
       // toggle contact-rw
       document.querySelectorAll('.contact-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // menu labels
+      document.querySelectorAll('.nav-en').forEach(el => el.classList.toggle('hidden', rwVisible));
+      document.querySelectorAll('.nav-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // warn-banner (Important)
+      document.querySelectorAll('.warn-en').forEach(el => el.classList.toggle('hidden', rwVisible));
+      document.querySelectorAll('.warn-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // quiz answer options
+      document.querySelectorAll('.opt-en').forEach(el => el.classList.toggle('hidden', rwVisible));
+      document.querySelectorAll('.opt-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
+      // stat-strip labels
+      document.querySelectorAll('.stat-lbl').forEach(el => el.classList.toggle('hidden', rwVisible));
+      document.querySelectorAll('.stat-lbl-rw').forEach(el => el.classList.toggle('hidden', !rwVisible));
       // update button
       const btn = document.getElementById('langTxt');
       btn.textContent = rwVisible ? 'Hide Kinyarwanda' : 'Show Kinyarwanda';
