@@ -11,4 +11,4 @@ COPY . .
 EXPOSE 80
 
 #Command
-CMD [ "nginx","-g","daemon off" ]
+CMD [ "nginx","-g","daemon off;" ]
