@@ -2,7 +2,7 @@
 
 > Volume 1, Issue 1, 2026
 
-🌐 **Live Site:** [https://goshenfinanceplc.netlify.app/](https://goshenfinanceplc.netlify.app/)
+🌐 **Live Site:** [https://goshenfinanceplc.netlify.app/](https://goshenfinanceplc.netlify.app/) <br>
 🐳 **Docker Hub:** [https://hub.docker.com/r/denoella/goshenfinanceplc](https://hub.docker.com/r/denoella/goshenfinanceplc)
 
 ---
